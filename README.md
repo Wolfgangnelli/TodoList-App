@@ -20,6 +20,16 @@ This web application allows you to write a to-do list. Each of them is then comp
 
 `docker-compose up`
 
+#### or
+
+### Install dependencies
+
+`npm install`
+
+### Start server
+
+`npm start`
+
 ### Local
 
 http://localhost:3000
