@@ -6,6 +6,7 @@ const Routes = () => {
     <RouterRoutes>
       <Route path="/" element={<Homepage />} />
       <Route path="/task-list" element={<TasksLists />} />
+      <Route path="/task-list/:id" element={<Tasks />} />
       <Route path="/*" element={<NotFound />} />
     </RouterRoutes>
   );
