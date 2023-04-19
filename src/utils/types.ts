@@ -1,7 +1,17 @@
-type TaskList = {
+export type Task = {
+  id: number, 
+  name: string, 
+  description: string, 
+  priority: number, 
+  dependency?: number, 
+  inCharge: string, 
+  status: string
+}
+
+export type TaskList = {
   title: string;
   id: number;
-  todos: { title: string }[];
+  tasks: Task[];
 };
 
 export type TasksList = {
