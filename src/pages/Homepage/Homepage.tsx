@@ -8,7 +8,7 @@ const Homepage = () => {
     <Page>
       <Row>
         <Col>
-          <h1 className="text-center">Welcome to TodoList App</h1>
+          <h1 className="text-center">Welcome to TaskList App</h1>
           <div className="d-flex justify-content-center">
             <Image src="https://picsum.photos/1120/400" fluid rounded />
           </div>
