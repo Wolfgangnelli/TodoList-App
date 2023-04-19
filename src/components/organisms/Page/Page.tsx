@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Page = (props: Props) => {
-  const { children, className = "min-vh-100 my-4" } = props;
+  const { children, className = "min-vh-100 my-5" } = props;
 
   return <section className={className}>{children}</section>;
 };
