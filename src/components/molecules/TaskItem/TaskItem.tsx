@@ -14,9 +14,9 @@ const TaskItem = (props: Props) => {
     <li className='p-2 my-3 border border-info rounded q-shadow'>
         <Row>
             <Col className='d-flex justify-content-center align-items-center'>
-            <span className={`task-item-${status}`}>
-                <i className='fa-solid fa-circle'></i>
-            </span>
+                <span className={`task-item-${status}`}>
+                    <i className='fa-solid fa-circle'></i>
+                </span>
             </Col>
             <Col xs={8}>
                 <b>{name}</b>
@@ -26,7 +26,6 @@ const TaskItem = (props: Props) => {
                 <span>{priority}</span>
             </Col>
         </Row>
-        
     </li>
   );
 };

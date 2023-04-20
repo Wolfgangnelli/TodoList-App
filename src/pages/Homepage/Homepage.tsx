@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Row, Col } from "react-bootstrap";
 import { Page } from "../../components/organisms";
-import { ButtonLink } from "../../components/atoms";
+import { Button } from "../../components/atoms";
 
 const Homepage = () => {
   return (
@@ -16,7 +16,7 @@ const Homepage = () => {
       </Row>
       <Row className="py-3">
         <Col className="d-flex justify-content-center">
-          <ButtonLink
+          <Button
             path="/task-list"
             label="Go to Tasks Lists"
             className="fw-bold"

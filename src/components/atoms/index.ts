@@ -1,5 +1,5 @@
-import ButtonLink from "./ButtonLink/ButtonLink";
+import Button from "./Button/Button";
 import MainTitle from './MainTitle/MainTitle';
-import GoBackLink from './GoBackLink/GoBackLink';
+import GoBackLink from './GoBack/GoBack';
 
-export { ButtonLink, MainTitle, GoBackLink };
+export { Button, MainTitle, GoBackLink };

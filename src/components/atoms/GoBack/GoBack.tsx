@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 
-const GoBackLink = () => {
+const GoBack = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -18,4 +18,4 @@ const GoBackLink = () => {
   );
 };
 
-export default GoBackLink;
+export default GoBack;
