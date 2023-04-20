@@ -1,17 +1,15 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Page } from "../../components/organisms";
-import "./TasksLists.scss";
+import { Page, AddListSection } from "../../components/organisms";
 import { TaskListCard } from "../../components/molecules";
+import { MainTitle } from '../../components/atoms';
+import "./TasksLists.scss";
 
 const TasksLists = () => {
   return (
     <Page>
-      <Row>
-        <Col>
-          <h1 className="text-center title-tasks-lists">Tasks Lists</h1>
-        </Col>
-      </Row>
+      <MainTitle label="Tasks Lists" />
+      <AddListSection />
       <Row>
         <Col>
           <TaskListCard />

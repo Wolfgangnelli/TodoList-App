@@ -2,67 +2,11 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useLocation } from "react-router";
-import { TasksList } from "../../../utils/types";
+import { TasksLists } from "../../../data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import "./TaskListCard.scss";
 import "swiper/css";
-
-const TasksLists: TasksList = {
-  data: [
-    {
-      title: "Trip to Paris",
-      id: 1,
-      todos: [
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-      ],
-    },
-    {
-      title: "Trip to Brasil",
-      id: 2,
-      todos: [
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-      ],
-    },
-    {
-      title: "Trip to Italy",
-      id: 3,
-      todos: [
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-      ],
-    },
-    {
-      title: "Trip to Spain",
-      id: 4,
-      todos: [
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-      ],
-    },
-    {
-      title: "Trip to Germany",
-      id: 5,
-      todos: [
-        { title: "Book flight" },
-        { title: "Passport check" },
-        { title: "Hotel reservation" },
-      ],
-    },
-  ],
-};
 
 const TaskListCard = () => {
   const size = useWindowSize();
@@ -77,8 +21,8 @@ const TaskListCard = () => {
               <div className="p-2">
                 <h4>{item.title}</h4>
                 <ul>
-                  {item.todos.map((todo, idx) => (
-                    <li key={idx}>{todo.title}</li>
+                  {item.tasks.map((task, idx) => (
+                    <li key={idx}>{task.name}</li>
                   ))}
                 </ul>
               </div>
@@ -95,8 +39,8 @@ const TaskListCard = () => {
             <div className="p-2">
               <h4>{item.title}</h4>
               <ul className="">
-                {item.todos.map((todo, idx) => (
-                  <li key={idx}>{todo.title}</li>
+                {item.tasks.map((task, idx) => (
+                  <li key={idx}>{task.name}</li>
                 ))}
               </ul>
             </div>

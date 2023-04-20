@@ -1,0 +1,48 @@
+@import "../../../theme/variables";
+
+.title-tasks-lists {
+    position: relative;
+  }
+  
+  .title-tasks-lists::before {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 4px;
+    left: 0;
+    top: 50%;
+    position: absolute;
+    background: $teal;
+  }
+  
+  .title-tasks-lists::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 4px;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    background: $teal;
+  }
+  
+  @media only screen and (max-width: 992px) {
+    .title-tasks-lists::before {
+      width: 30%;
+    }
+  
+    .title-tasks-lists::after {
+      width: 30%;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .title-tasks-lists::before {
+      width: 25%;
+    }
+  
+    .title-tasks-lists::after {
+      width: 25%;
+    }
+  }
+  
