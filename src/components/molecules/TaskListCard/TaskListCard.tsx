@@ -5,12 +5,20 @@ import { useLocation } from "react-router";
 import { TasksLists } from "../../../data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
+import { db } from '../../../config/db';
+import { useLiveQuery } from 'dexie-react-hooks';
 import "./TaskListCard.scss";
 import "swiper/css";
+
+const { tasks } = db;
 
 const TaskListCard = () => {
   const size = useWindowSize();
   let location = useLocation();
+
+  const allTasks = useLiveQuery(() => tasks.toArray(), []);
+
+  console.log(allTasks);
 
   return !!size && size === "XS" ? (
     <Swiper spaceBetween={30} slidesPerView={1.5} className="mt-4">
