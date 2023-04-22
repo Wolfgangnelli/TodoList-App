@@ -9,7 +9,7 @@ const AddListSection = () => {
   return (
     <Row>
         <Col className='d-flex justify-content-center align-items-center flex-column pt-3 pb-1'>
-            <span style={{ cursor: 'pointer' }} onClick={handleOpenSidePanel}><i className='fa-regular fa-square-plus fa-2xl'></i></span>
+            <span onClick={handleOpenSidePanel} className='c-pointer'><i className='fa-regular fa-square-plus fa-2xl'></i></span>
             <p className='mb-0 pt-1'>Add List</p>
         </Col>
   </Row>

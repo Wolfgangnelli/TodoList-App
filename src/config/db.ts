@@ -1,13 +1,15 @@
 import Dexie, { Table } from 'dexie';
-import { TasksList } from '../utils/types';
+import { TaskListDexie, TaskDexie } from '../utils/types';
 
 export class TasksSubClassedDexie extends Dexie {
-    tasks!: Table<TasksList>;
+    tasksLists!: Table<TaskListDexie>;
+    tasks!: Table<TaskDexie>;
 
     constructor() {
-        super('taskListApp');
+        super('taskListDb');
         this.version(1).stores({
-            tasks: '++id, data'
+            tasksLists: '++id,title',
+            tasks: '++id,name,description,priority,completed,tasksListsId'
         });
     }
 }

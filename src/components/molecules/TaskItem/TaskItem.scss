@@ -1,11 +1,9 @@
 @import "../../../theme/variables";
 
-.task-item-pending {
+.task-item-notcompleted {
     color: $orange;
 }
-.task-item-progress {
-    color: $yellow;
-}
-.task-item-done {
+
+.task-item-completed {
     color: $green;
 }

@@ -12,7 +12,7 @@ const GoBack = () => {
   return (
     <Row className='mt-3'>
       <Col>
-        <div onClick={handleGoBack} className='text-white fw-semibold text-decoration-underline'><i className='fa-solid fa-arrow-left-long'></i> Go Back</div>
+        <div onClick={handleGoBack} className='text-white fw-semibold text-decoration-underline c-pointer'><i className='fa-solid fa-arrow-left-long'></i> Go Back</div>
       </Col>
     </Row>
   );

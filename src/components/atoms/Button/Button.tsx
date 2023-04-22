@@ -7,14 +7,15 @@ interface Props {
   label: React.ReactNode
   className: string
   onClick?: () => void
+  variant?: string
 }
 
 const Button = (props: Props) => {
-  const { path = "", label = "", className = "", onClick = undefined } = props;
+  const { path = "", label = "", className = "", onClick = undefined, variant = "primary" } = props;
 
   return path ? (
     <LinkContainer to={path}>
-      <ButtonB className={className}>{label}</ButtonB>
+      <ButtonB variant={variant} className={className}>{label}</ButtonB>
     </LinkContainer>
   ) : onClick ? (
     <button className={className} onClick={onClick}>{label}</button>

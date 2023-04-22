@@ -3,16 +3,16 @@ import { Row, Col } from 'react-bootstrap';
 import "./MainTitle.scss";
 
 interface Props {
-    label: string
+    title: string
 }
 
 const MainTitle = (props: Props) => {
-    const { label = "" } = props;
+    const { title = "" } = props;
     
   return (
     <Row>
         <Col>
-        <h1 className="text-center title-tasks-lists">{label}</h1>
+        <h1 className="text-center title-tasks-lists">{title}</h1>
         </Col>
   </Row>
   );
