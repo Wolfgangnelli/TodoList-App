@@ -1,4 +1,4 @@
-# 🚀 TodoList App
+# 🚀 TaskList App
 
 This web application allows you to write a to-do list. Each of them is then composed of tasks.
 
