@@ -9,7 +9,6 @@ import { taskListSchema } from '../../../schemas';
 import { db } from '../../../config/db';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import "./SidePane.scss";
-import { TaskListDexie } from '../../../utils/types';
 
 const { tasksLists } = db;
 
