@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useContext } from 'react';
+import { SidePanelContext } from '../../../app/App';
 import { Button } from '../../atoms';
 import { Row, Col, Form, Button as BtspButton } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -7,6 +9,7 @@ import { taskListSchema } from '../../../schemas';
 import { db } from '../../../config/db';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import "./SidePane.scss";
+import { TaskListDexie } from '../../../utils/types';
 
 const { tasksLists } = db;
 
@@ -20,13 +23,15 @@ const SidePanel = (props: Props) => {
 
     const [isPanelOpen, setIsPanelOpen] = useState<boolean>(isOpen);
 
+    const { taskListId, setTaskListId } = useContext(SidePanelContext);
     const size = useWindowSize();
 
     const {
         register,
         formState: { errors },
         reset,
-        handleSubmit
+        handleSubmit,
+        setValue
     } = useForm({
         mode: "all",
         resolver: yupResolver(taskListSchema)
@@ -43,14 +48,27 @@ const SidePanel = (props: Props) => {
         });
       };
 
+    const updateTaskList = async (data: any) => {
+        await tasksLists.update(taskListId, {
+            title: data.title
+        });
+        setTaskListId(null);
+    };
+
     const handleAddTaskList = handleSubmit((data) => {
-        addTaskList(data);
+        taskListId ? updateTaskList(data) : addTaskList(data);
         reset();
         handleClose();
     });
 
+    const getTaskList = async () => {
+        const taskList = await tasksLists.get(taskListId);
+        setValue('title', taskList?.title);
+    };
+
     useEffect(() => {
         isOpen && setIsPanelOpen(true);
+        taskListId && getTaskList();
     }, [isOpen]);
 
   return (

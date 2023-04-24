@@ -8,6 +8,7 @@ export const SidePanelContext = createContext<any>({});
 
 function App() {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState<boolean>(false);
+  const [taskListId, setTaskListId] = useState(null);
 
   const handleOpenSidePanel = () => {
     setIsSidePanelOpen(true);
@@ -18,7 +19,7 @@ function App() {
   };
 
   return (
-    <SidePanelContext.Provider value={{isSidePanelOpen, handleOpenSidePanel, handleCloseSidePanel}}>
+    <SidePanelContext.Provider value={{isSidePanelOpen, handleOpenSidePanel, handleCloseSidePanel, setTaskListId, taskListId}}>
       <Header />
       <Container as="main" fluid="xxl">
         <Routes />

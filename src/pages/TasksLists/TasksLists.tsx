@@ -21,6 +21,7 @@ const TasksLists = () => {
       <AddListSection />
       <Row>
         <Col>
+        <p className="mt-4 text-info fst-italic">(For modify the tasks, click on the card)</p>
           <TaskListCard tasksLists={allTasksLists} tasks={allTasks} />
         </Col>
       </Row>
