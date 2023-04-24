@@ -36,7 +36,7 @@ const TaskItem = (props: Props) => {
                             <i className='fa-solid fa-pen-to-square'></i>
                         </span>
                     </LinkContainer>
-                    <span onClick={deleteTask} className='c-pointer'>
+                    <span onClick={deleteTask} className='c-pointer text-danger'>
                         <i className='fa-solid fa-trash'></i>
                     </span>
                 </Col>
