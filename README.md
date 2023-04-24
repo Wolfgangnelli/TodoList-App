@@ -1,4 +1,4 @@
-# 🚀 TodoList App
+# 🚀 TaskList App
 
 This web application allows you to write a to-do list. Each of them is then composed of tasks.
 
@@ -35,3 +35,11 @@ This web application allows you to write a to-do list. Each of them is then comp
 http://localhost:3000
 
 (service port: 3000)
+
+## Deployment
+
+### Static Server
+
+`npm install -g serve`
+
+`npm serve -s build` or if you want serve your static site on the other port `serve -s build -l 4000`

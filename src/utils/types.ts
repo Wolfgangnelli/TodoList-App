@@ -3,9 +3,7 @@ export type Task = {
   name: string, 
   description: string, 
   priority: number, 
-  dependency?: number, 
-  inCharge: string, 
-  status: string
+  completed: boolean
 }
 
 export type TaskList = {
@@ -22,3 +20,22 @@ export type WindowSizeObj = {
   width: undefined | number;
   height: undefined | number;
 };
+
+
+export type TaskDexie = {
+  id?: number, 
+  name: string, 
+  description: string, 
+  priority: number, 
+  completed: boolean
+  tasksListsId?: number
+}
+
+export type TaskListDexie = {
+  title: string;
+};
+
+export type ActionType = {
+  type: string
+  payload: any
+}

@@ -30,3 +30,15 @@ body {
 .close-button:hover {
   color: $dark-blue;
 }
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.task-item-notcompleted {
+  color: $orange;
+}
+
+.task-item-completed {
+  color: $green;
+}
