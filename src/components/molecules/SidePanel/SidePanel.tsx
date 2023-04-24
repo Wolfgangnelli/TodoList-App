@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { taskListSchema } from '../../../schemas';
 import { db } from '../../../config/db';
+import { useWindowSize } from '../../../hooks/useWindowSize';
 import "./SidePane.scss";
 
 const { tasksLists } = db;
@@ -18,6 +19,8 @@ const SidePanel = (props: Props) => {
     const { isOpen, onClose } = props;
 
     const [isPanelOpen, setIsPanelOpen] = useState<boolean>(isOpen);
+
+    const size = useWindowSize();
 
     const {
         register,
@@ -58,7 +61,7 @@ const SidePanel = (props: Props) => {
                 <Button className='close-button' onClick={handleClose} label={<i className='fa-regular fa-circle-xmark'></i>} />
             </Col>
         </Row>
-        <Row className=' mt-4 px-1'>
+        <Row className={`mt-4 px-1 ${size !== 'XS' && 'w-50'}`}>
             <Col>
                 <Form onSubmit={handleAddTaskList}>
                     <Form.Group className="mb-3 fw-bold" controlId="title">

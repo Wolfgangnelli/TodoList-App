@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Page } from "../../components/organisms";
 import { GoBackLink, MainTitle } from "../../components/atoms";
-import { TaskItem } from '../../components/molecules';
+import { TaskItem, Modal } from '../../components/molecules';
 import { Row, Col } from "react-bootstrap";
 import { useLocation } from 'react-router-dom';
 import "./Tasks.scss";
@@ -14,6 +14,7 @@ const { tasksLists, tasks } = db;
 const Tasks = () => {
   const [taskListObj, setTaskListObj] = useState<any>();
   const [allTasks, setAllTasks] = useState<any>();
+  const [modalShow, setModalShow] = useState(false);
 
   let location = useLocation();
   const selectedTask = +location.pathname.split("/")[2];
@@ -36,6 +37,7 @@ const Tasks = () => {
   return (
     <Page>
       <GoBackLink />
+      <Modal show={modalShow} onHide={() => setModalShow(false)} />
       <MainTitle title="Tasks" />
         <Row>
           <Col className='d-flex justify-content-center align-items-center flex-column pt-3 pb-1'>
@@ -46,8 +48,9 @@ const Tasks = () => {
           </Col>
         </Row>
         <Row className="pt-4">
-          <Col>
+          <Col className="d-flex justify-content-between">
             <h1 className="h1"><strong>{taskListObj && taskListObj[0]?.title}</strong></h1>
+            <p className="text-decoration-underline d-flex align-self-end justify-content-end c-pointer symbol-legend" onClick={() => setModalShow(true)}>symbol legend</p>
           </Col>
         </Row>
       <Row>

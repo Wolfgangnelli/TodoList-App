@@ -8,12 +8,14 @@ import { db } from '../../config/db';
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import { taskSchema } from '../../schemas';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 const { tasks } = db;
 
 const AddTask = () => {
     let location = useLocation();
     let navigate = useNavigate();
+    const size = useWindowSize();
 
     const {
         register,
@@ -47,16 +49,18 @@ const AddTask = () => {
     <Page>
         <GoBackLink />
         <MainTitle title='Add Task' />
-        <Row>
+        <Row className={`pt-3 ${size !== "XS" && "w-75 mx-auto"}`}>
             <Col>
                 <Form onSubmit={handleAddTask}>
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Book flight" {...register("name")} />
+                        {errors.name && <p>{String(errors.name.message)}</p>}
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" placeholder="Describe the task" {...register("description")} />
+                        {errors.description && <p>{String(errors.description.message)}</p>}
                     </Form.Group>
                     <Form.Group>
                     <Form.Label>Priority</Form.Label>
@@ -66,6 +70,7 @@ const AddTask = () => {
                         <option className='text-black' value="2">Two (Medium)</option>
                         <option className='text-black' value="3">Three (Low)</option>
                     </Form.Select>
+                    {errors.priority && <p>{String(errors.priority.message)}</p>}
                     </Form.Group>
                     <Button variant="primary" type="submit" className='mt-2'>
                         Submit
