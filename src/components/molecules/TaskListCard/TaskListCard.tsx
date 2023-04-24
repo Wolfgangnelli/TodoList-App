@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { TaskList, TaskDexie } from '../../../utils/types';
 import { SidePanelContext } from '../../../app/App';
+import { db } from '../../../config/db';
 import "./TaskListCard.scss";
 import "swiper/css";
 
@@ -20,6 +21,11 @@ const TaskListCard = (props: Props) => {
   const size = useWindowSize();
   let location = useLocation();
   const { handleOpenSidePanel, setTaskListId } = useContext(SidePanelContext);
+
+  const deleteTaskList = async (id: number) => {
+    db.tasksLists.delete(id);
+    db.tasks.where({ tasksListsId: id}).delete();
+  };
 
   return !!size && size === "XS" ? (
     <Swiper spaceBetween={30} slidesPerView={1.5}>
@@ -43,7 +49,7 @@ const TaskListCard = (props: Props) => {
                 }}>
                 <i className='fa-solid fa-pen-to-square'></i>
               </span>
-              <span className='c-pointer px-2 text-danger'>
+              <span className='c-pointer px-2 text-danger' onClick={() => deleteTaskList(item.id)}>
                 <i className='fa-solid fa-trash'></i>
               </span>
             </div>
@@ -73,7 +79,7 @@ const TaskListCard = (props: Props) => {
                 }}>
                 <i className='fa-solid fa-pen-to-square'></i>
               </span>
-              <span className='c-pointer px-2 text-danger'>
+              <span className='c-pointer px-2 text-danger' onClick={() => deleteTaskList(item.id)}>
                 <i className='fa-solid fa-trash'></i>
               </span>
             </div>
