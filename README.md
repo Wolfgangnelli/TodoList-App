@@ -41,4 +41,5 @@ http://localhost:3000
 ### Static Server
 
 `npm install -g serve`
+
 `npm serve -s build` or if you want serve your static site on the other port `serve -s build -l 4000`
