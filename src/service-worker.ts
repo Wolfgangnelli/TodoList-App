@@ -78,3 +78,23 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+const CACHE_NAME = 'HOME-IMG-CACHE';
+const urlsToCache = [
+  'https://picsum.photos/1120/400'
+];
+
+// Aggiungo l'immagine alla cache quando il service worker viene installato
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+  );
+});
+
+// Gestisco l'evento fetch per restitiruire l'immagine dalla cache quando viene richiesta dalla pagina web, se disponibile
+self.addEventListener('fetch', (event) => {
+  event.respondWith(caches.match(event.request).then((res) => {
+    if(res) return res;
+    return fetch(event.request);
+  })
+  );
+});

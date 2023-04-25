@@ -22,7 +22,7 @@ const TaskItem = (props: Props) => {
             <Row>
                 <Col className='d-flex flex-column justify-content-around align-items-center'>
                     <span>{priority}</span>
-                    <span className={`task-item-${completed ? 'completed' : 'notcompleted'}`}>
+                    <span className={`task-item-${completed ? 'completed' : 'notcompleted'}`} data-testid={completed ? 'completed' : 'notcompleted'}>
                         <i className='fa-solid fa-circle'></i>
                     </span>
                 </Col>
@@ -36,7 +36,7 @@ const TaskItem = (props: Props) => {
                             <i className='fa-solid fa-pen-to-square'></i>
                         </span>
                     </LinkContainer>
-                    <span onClick={deleteTask} className='c-pointer text-danger'>
+                    <span onClick={deleteTask} className='c-pointer text-danger' data-testid="delete-icon">
                         <i className='fa-solid fa-trash'></i>
                     </span>
                 </Col>
