@@ -4,7 +4,7 @@ This web application allows you to write a to-do list. Each of them is then comp
 
 ## 👨🏻‍💻 Technologies
 
-💙 - React js Projects
+💙 - React js - Typescript Projects
 
 💛 - Vanilla JS Projects
 
@@ -42,4 +42,6 @@ http://localhost:3000
 
 `npm install -g serve`
 
-`npm serve -s build` or if you want serve your static site on the other port `serve -s build -l 4000`
+`npm run build` or `yarn run build`
+
+`serve -s build` or if you want serve your static site on the other port `serve -s build -l 4000`

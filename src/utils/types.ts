@@ -34,8 +34,3 @@ export type TaskDexie = {
 export type TaskListDexie = {
   title: string;
 };
-
-export type ActionType = {
-  type: string
-  payload: any
-}
